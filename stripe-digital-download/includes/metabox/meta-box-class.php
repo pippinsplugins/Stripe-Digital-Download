@@ -16,7 +16,7 @@
 /**
  * Meta Box class
  */
-class bb_meta_box {
+class sdd_meta_box {
 
 	protected $_meta_box;
 	protected $_fields;
@@ -208,7 +208,7 @@ class bb_meta_box {
 	function show() {
 		global $post;
 
-		wp_nonce_field(basename(__FILE__), 'bb_meta_box_nonce');
+		wp_nonce_field(basename(__FILE__), 'sdd_meta_box_nonce');
 		echo '<table class="form-table">';
 
 		foreach ($this->_fields as $field) {
@@ -395,7 +395,7 @@ class bb_meta_box {
 		if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)						// check autosave
 		|| (!isset($_POST['post_ID']) || $post_id != $_POST['post_ID'])			// check revision
 		|| (!in_array($post_type, $this->_meta_box['pages']))					// check if current post type is supported
-		|| (!check_admin_referer(basename(__FILE__), 'bb_meta_box_nonce'))		// verify nonce
+		|| (!check_admin_referer(basename(__FILE__), 'sdd_meta_box_nonce'))		// verify nonce
 		|| (!current_user_can($post_type_object->cap->edit_post, $post_id))) {	// check permission
 			return $post_id;
 		}
@@ -407,8 +407,8 @@ class bb_meta_box {
 			$new = isset($_POST[$name]) ? $_POST[$name] : ($field['multiple'] ? array() : '');
 
 			// validate meta value
-			if (class_exists('bb_meta_box_Validate') && method_exists('bb_meta_box_Validate', $field['validate_func'])) {
-				$new = call_user_func(array('bb_meta_box_Validate', $field['validate_func']), $new);
+			if (class_exists('sdd_meta_box_Validate') && method_exists('sdd_meta_box_Validate', $field['validate_func'])) {
+				$new = call_user_func(array('sdd_meta_box_Validate', $field['validate_func']), $new);
 			}
 
 			// call defined method to save meta value, if there's no methods, call common one

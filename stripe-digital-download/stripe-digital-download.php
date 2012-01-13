@@ -9,6 +9,9 @@ Author URI: http://pippinsplugins.com
 Version: 1.0
 */
 
+
+ini_set('display_errors', 'on');
+
 // plugin folder url
 if(!defined('SDD_PLUGIN_URL')) {
 	define('SDD_PLUGIN_URL', plugin_dir_url( __FILE__ ));
@@ -64,9 +67,13 @@ register_activation_hook(__FILE__, 'sdd_options_install');
 * includes
 *************************************/
 
-include(SDD_PLUGIN_DIR . '/includes/metabox.php');
-include(SDD_PLUGIN_DIR . '/includes/settings.php');
-include(SDD_PLUGIN_DIR . '/includes/process-payment.php');
-include(SDD_PLUGIN_DIR . '/includes/scripts.php');
-include(SDD_PLUGIN_DIR . '/includes/purchase-form.php');
-
+if(is_admin()) {
+	include(SDD_PLUGIN_DIR . '/includes/metabox.php');
+	include(SDD_PLUGIN_DIR . '/includes/settings.php');
+} elseif(!is_admin()) {
+	include(SDD_PLUGIN_DIR . '/includes/process-payment.php');
+	include(SDD_PLUGIN_DIR . '/includes/scripts.php');
+	include(SDD_PLUGIN_DIR . '/includes/purchase-form.php');
+	include(SDD_PLUGIN_DIR . '/includes/email-functions.php');
+	include(SDD_PLUGIN_DIR . '/includes/process-download.php');
+}

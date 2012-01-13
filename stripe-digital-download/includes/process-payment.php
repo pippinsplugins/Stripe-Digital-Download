@@ -37,6 +37,7 @@ function sdd_process_payment() {
 			sdd_insert_payment($payment_data);
 				
 			// send email with secure download link
+			sdd_email_download_link($payment_data);
 				
 			// redirect on successful payment
 			$redirect = add_query_arg('payment_status', 'paid', $_POST['redirect']);
@@ -56,8 +57,6 @@ function sdd_insert_payment($payment_data = array()) {
 	if(empty($payment_data))
 		return false;
 	
-	// check for existing payment (maybe)
-
 	$wpdb->insert( 
 		$sdd_payments_db_name, 
 		array( 
