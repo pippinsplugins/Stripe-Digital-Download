@@ -28,7 +28,10 @@ function sdd_email_download_link($payment_data) {
 	
 	/* send an email notification to the admin */
 	$admin_email = get_option('admin_email');
-	$admin_message = __('Hello', 'sdd') . "\n\n" . __('A download purchase has been made') . ".\n\n" . __('Product sold', 'sdd') . ': ' . get_the_title($payment_data['post_id']) . "\n\n" . __('Thank you', 'sdd');
+	$admin_message = __('Hello', 'sdd') . "\n\n" . __('A download purchase has been made') . ".\n\n";
+	$admin_message .= __('Product sold', 'sdd') . ': ' . get_the_title($payment_data['post_id']) . "\n\n";
+	$admin_message .= __('Price', 'sdd') . " " . $payment_data['amount'] / 100 . $sdd_options['currency'] . "\n\n";
+	$admin_message .= __('Thank you', 'sdd');
 	wp_mail( $admin_email, __('New download purchase', 'sdd'), $admin_message );
 	
 }

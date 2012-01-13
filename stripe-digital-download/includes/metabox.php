@@ -21,8 +21,14 @@ function sdd_metaboxes() {
 	            'type' => 'plaintext',  
 	        ),
 			array(
+	            'name' => 'Purchase Button',    
+	            'desc' => '<br/>Enter the text to be shown on the "show purchase form" button',    
+	            'id' => $sdd_prefix . 'purchase_button',            
+	            'type' => 'text',  
+	        ),
+			array(
 	            'name' => 'Price',    
-	            'desc' => 'Enter the download price',    
+	            'desc' => '<br/>Enter the download price',    
 	            'id' => $sdd_prefix . 'price',            
 	            'type' => 'text',  
 	        ),

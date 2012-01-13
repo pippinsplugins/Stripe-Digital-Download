@@ -70,6 +70,8 @@ register_activation_hook(__FILE__, 'sdd_options_install');
 if(is_admin()) {
 	include(SDD_PLUGIN_DIR . '/includes/metabox.php');
 	include(SDD_PLUGIN_DIR . '/includes/settings.php');
+	include(SDD_PLUGIN_DIR . '/includes/misc-functions.php');
+	include(SDD_PLUGIN_DIR . '/includes/payments-history.php');
 } elseif(!is_admin()) {
 	include(SDD_PLUGIN_DIR . '/includes/process-payment.php');
 	include(SDD_PLUGIN_DIR . '/includes/scripts.php');
