@@ -82,6 +82,7 @@ function sdd_payment_form() {
 		<form action="" method="POST" id="payment-form" style="display:none;">
 			<p><?php _e('Please enter your credit/debit card information to purchase this item. All transactions are made securely and no card information is stored.', 'sdd'); ?></p>
 			<p><?php _e('All transactions are processed through <a href="http://stripe.com">Stripe.com</a>', 'sdd'); ?></p>
+			<p><img src="<?php echo SDD_PLUGIN_URL . '/includes/images/credit_cards.jpg'; ?>" id="credit_cards"/></p>
 			<div class="form-row">
 				<label><?php _e('Email', 'sdd'); ?></label>
 				<input type="text" size="20" autocomplete="off" name="email" class="email" />

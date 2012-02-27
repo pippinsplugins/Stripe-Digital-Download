@@ -1,3 +1,5 @@
 #payment-form { margin: 0 0 20px; }
+#payment-form .form-row { margin: 0 0 10px; }
+#payment-form button { background: #f5f5f5; border: 1px solid #d1d1d1; color: #666; font-weight: bold; margin: 0; padding: 8px 15px; }
 #payment-form label { width: 180px; display: block; float: left; }
 .payment-errors { color: red; }
